@@ -13,7 +13,7 @@ export async function encrypt(value: string | number): Promise<string> {
   const jwt = await new SignJWT({ data: String(value) })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("1h")
+    .setExpirationTime("10h")
     .sign(secretKey);
 
   return encodeURIComponent(jwt);
